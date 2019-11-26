@@ -18,3 +18,6 @@ https://www.python.org/downloads/`
 *   Open your Terminal/Powershell/Command Prompt in the main folder of this repository
 *   Run `python3 main.py` or `sudo python3 main.py` if you are on a Mac/Linux
 *   Enjoy!
+
+##  Warning!
+*   As of now the script can only process single episodes/movies. The source code for whole series can be obtained by becoming my patreon at https://www.patreon.com/etjfo
