@@ -1,14 +1,19 @@
-#This code was written by Boidushya Bhattacharya on Monday, 26 November 2019 at 20:27 p.m.
+#This code was written by Boidushya Bhattacharya (and sudoxd) on Monday, 26 November 2019 at 20:27 p.m.
 #Reddit: https://reddit.com/u/Boidushya
 #Facebook: https://facebook.com/soumyadipta.despacito
 
 import cv2
 import os
+import glob
 import math
 import facebook
 import functools
 import schedule
 import time
+import fnmatch
+
+if os.path.exists("./assets/retain"):
+  os.remove("./assets.retain")
 
 def catch_exceptions(cancel_on_failure=False):
     def catch_exceptions_decorator(job_func):
@@ -46,14 +51,20 @@ def extractFrames():
             cv2.imwrite(f"assets/frames/frame{int(x):04}.jpg", image)
 
     vidcap.release()
-
-
 @catch_exceptions()
+<<<<<<< Updated upstream
 def post(dir = os.listdir("assets/frames")):
     with open("assets/retain","a+") as f:
+=======
+def post():
+    dir = os.listdir("./assets/frames")
+    with open("./assets/retain","a+") as f:
+>>>>>>> Stashed changes
         f.seek(0)
         filled = f.read(1)
         if not filled:
+            #os.chdir("./assets/frames")
+            #for file in glob.glob("*.jpg"):
             totalFrames = str(len(dir))
             f.write(totalFrames)
         else:
@@ -76,7 +87,7 @@ if __name__ == '__main__':
         extractFrames()
     else:
         pass
-    schedule.every().minute.do(post).run()
+    schedule.every().hour.do(post).run()
 
     while 1:
         schedule.run_pending()
