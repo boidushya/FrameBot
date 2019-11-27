@@ -22,6 +22,8 @@ def catch_exceptions(cancel_on_failure=False):
     return catch_exceptions_decorator
 
 def extractFrames():
+    if not os.path.exists('frames'):
+        os.mkdir('frames')
     file = os.listdir('assets/video')[0]
     videoFile = path(f"assets/video/{file}")
     Rate = 5
