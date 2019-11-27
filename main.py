@@ -25,10 +25,10 @@ def catch_exceptions(cancel_on_failure=False):
     return catch_exceptions_decorator
 
 def extractFrames():
-    file = os.listdir('assets/video')[0]
-    videoFile = f"assets/video/{file}"
-    if not os.path.exists('assets/frames'):
-        os.mkdir('assets/frames')
+    file = os.listdir('./assets/video')[0]
+    videoFile = f"./assets/video/{file}"
+    if not os.path.exists('./assets/frames'):
+        os.mkdir('./assets/frames')
     vidcap = cv2.VideoCapture(videoFile)
     success,image = vidcap.read()
     fps = vidcap.get(cv2.CAP_PROP_FPS)
@@ -43,14 +43,14 @@ def extractFrames():
 
         if frameId % multiplier == 0:
             x+=1
-            cv2.imwrite(f"assets/frames/frame{int(x):04}.jpg", image)
+            cv2.imwrite(f"./assets/frames/frame{int(x):04}.jpg", image)
 
     vidcap.release()
 
 
 @catch_exceptions()
-def post(dir = os.listdir("assets/frames")):
-    with open("assets/retain","a+") as f:
+def post(dir = os.listdir("./assets/frames")):
+    with open("./assets/retain","a+") as f:
         f.seek(0)
         filled = f.read(1)
         if not filled:
@@ -60,10 +60,10 @@ def post(dir = os.listdir("assets/frames")):
             f.seek(0)
             totalFrames = str(f.readline())
 
-    currentFrame = f'assets/frames/{dir[0]}'
+    currentFrame = f'./assets/frames/{dir[0]}'
     currentFrameNumber = str(int(currentFrame[-8:-4]))
     msg = f"Frame {currentFrameNumber} out of {str(totalFrames)}"
-    with open('assets/token.txt','r') as token:
+    with open('./assets/token.txt','r') as token:
         accesstoken = token.readline()
     graph = facebook.GraphAPI(accesstoken)
     post_id = graph.put_photo(image=open(currentFrame, 'rb'),message = msg)['post_id']
