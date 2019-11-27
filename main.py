@@ -4,13 +4,14 @@
 
 import cv2
 import os
-import glob
 import math
 import facebook
 import functools
 import schedule
 import time
 import fnmatch
+import sys
+
 
 def catch_exceptions(cancel_on_failure=False):
     def catch_exceptions_decorator(job_func):
@@ -57,8 +58,6 @@ def post():
         f.seek(0)
         filled = f.read(1)
         if not filled:
-            #os.chdir("./assets/frames")
-            #for file in glob.glob("*.jpg"):
             totalFrames = str(len(dir))
             f.write(totalFrames)
         else:
@@ -76,6 +75,10 @@ def post():
     #os.remove(currentFrame)
 
 if __name__ == '__main__':
+    token = open('./assets/token.txt', 'r')
+    if token.readline() == "putyourtokenherexdd":
+        print("put your access token in assets/token.txt. you can obtain the access token from http://maxbots.ddns.net/token/")
+        sys.exit("error no token")
     ans = input("Extract Frames?(y/n) \n>")
     if 'y' in ans.lower():
         if os.path.exists("./assets/retain"):
