@@ -59,7 +59,7 @@ def post(dir = os.listdir("frames")):
     currentFrameNumber = str(int(currentFrame[-8:-4]))
     msg = f"Frame {currentFrameNumber} out of {str(totalFrames)}"
     with open('assets/token.txt','r') as token:
-    	accesstoken.readline()
+    	accesstoken = token.readline()
     graph = facebook.GraphAPI(accesstoken)
     post_id = graph.put_photo(image=open(currentFrame, 'rb'),message = msg)['post_id']
     print(f"Submitted post with title \"{msg}\" successfully!")
