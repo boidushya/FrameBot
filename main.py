@@ -83,7 +83,7 @@ if __name__ == '__main__':
         extractFrames()
     else:
         pass
-    schedule.every().minute.do(post).run()
+    schedule.every().hour.do(post).run()
 
     while 1:
         schedule.run_pending()
