@@ -1,3 +1,7 @@
+#This code was written by Boidushya Bhattacharya on Monday, 26 November 2019 at 20:27 p.m.
+#Reddit: https://reddit.com/u/Boidushya
+#Facebook: https://facebook.com/soumyadipta.despacito
+
 import cv2
 from os.path import realpath as path
 import os
@@ -22,29 +26,31 @@ def catch_exceptions(cancel_on_failure=False):
     return catch_exceptions_decorator
 
 def extractFrames():
-    if not os.path.exists('frames'):
-        os.mkdir('frames')
     file = os.listdir('assets/video')[0]
     videoFile = path(f"assets/video/{file}")
-    Rate = 5
-    cap = cv2.VideoCapture(videoFile)
-    frameRate = cap.get(Rate)
-    x=1
-    while(cap.isOpened()):
-        frameId = cap.get(1)
-        ret, frame = cap.read()
-        if (ret != True):
-            break
-        if (int(frameId) % int(math.floor(frameRate)) == 0):
-            filename = path(f"frames/frame{int(x):04}.jpg")
-            x+=1
-            cv2.imwrite(filename, frame)
+    if not os.path.exists('assets/frames'):
+        os.mkdir('assets/frames')
+    vidcap = cv2.VideoCapture(videoFile)
+    success,image = vidcap.read()
+    fps = vidcap.get(cv2.CAP_PROP_FPS)
+    required_fps =2 #if you want you can change the FPS for your video here
+    #The more the fps, the more number of frames
+    multiplier = round(fps/required_fps)
+    x=0
 
-        cap.release()
-        print("Frames extracted successfully!")
+    while success:
+        frameId = int(round(vidcap.get(1)))
+        success, image = vidcap.read()
+
+        if frameId % multiplier == 0:
+            x+=1
+            cv2.imwrite(path(f"assets/frames/frame{int(x):04}.jpg"), image)
+
+    vidcap.release()
+
 
 @catch_exceptions()
-def post(dir = os.listdir("frames")):
+def post(dir = os.listdir("assets/frames")):
     with open("assets/retain","a+") as f:
         f.seek(0)
         filled = f.read(1)
@@ -55,11 +61,11 @@ def post(dir = os.listdir("frames")):
             f.seek(0)
             totalFrames = str(f.readline())
 
-    currentFrame = path(f'frames/{dir[0]}')
+    currentFrame = path(f'assets/frames/{dir[0]}')
     currentFrameNumber = str(int(currentFrame[-8:-4]))
     msg = f"Frame {currentFrameNumber} out of {str(totalFrames)}"
     with open('assets/token.txt','r') as token:
-    	accesstoken = token.readline()
+        accesstoken = token.readline()
     graph = facebook.GraphAPI(accesstoken)
     post_id = graph.put_photo(image=open(currentFrame, 'rb'),message = msg)['post_id']
     print(f"Submitted post with title \"{msg}\" successfully!")
@@ -71,7 +77,7 @@ if __name__ == '__main__':
         extractFrames()
     else:
         pass
-    schedule.every().hour.do(post).run()
+    schedule.every().minute.do(post).run()
 
     while 1:
         schedule.run_pending()
