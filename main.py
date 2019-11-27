@@ -3,7 +3,6 @@
 #Facebook: https://facebook.com/soumyadipta.despacito
 
 import cv2
-from os.path import realpath as path
 import os
 import math
 import facebook
@@ -27,7 +26,7 @@ def catch_exceptions(cancel_on_failure=False):
 
 def extractFrames():
     file = os.listdir('assets/video')[0]
-    videoFile = path(f"assets/video/{file}")
+    videoFile = f"assets/video/{file}"
     if not os.path.exists('assets/frames'):
         os.mkdir('assets/frames')
     vidcap = cv2.VideoCapture(videoFile)
@@ -44,7 +43,7 @@ def extractFrames():
 
         if frameId % multiplier == 0:
             x+=1
-            cv2.imwrite(path(f"assets/frames/frame{int(x):04}.jpg"), image)
+            cv2.imwrite(f"assets/frames/frame{int(x):04}.jpg", image)
 
     vidcap.release()
 
@@ -61,7 +60,7 @@ def post(dir = os.listdir("assets/frames")):
             f.seek(0)
             totalFrames = str(f.readline())
 
-    currentFrame = path(f'assets/frames/{dir[0]}')
+    currentFrame = f'assets/frames/{dir[0]}'
     currentFrameNumber = str(int(currentFrame[-8:-4]))
     msg = f"Frame {currentFrameNumber} out of {str(totalFrames)}"
     with open('assets/token.txt','r') as token:
