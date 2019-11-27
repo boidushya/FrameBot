@@ -1,4 +1,4 @@
-#This code was written by Boidushya Bhattacharya (and sudoxd) on Monday, 26 November 2019 at 20:27 p.m.
+#This code was written by Boidushya Bhattacharya and Gustav Wallström (github/sudoxd) on Monday, 26 November 2019 at 20:27 p.m.
 #Reddit: https://reddit.com/u/Boidushya
 #Facebook: https://facebook.com/soumyadipta.despacito
 
@@ -11,9 +11,6 @@ import functools
 import schedule
 import time
 import fnmatch
-
-if os.path.exists("./assets/retain"):
-  os.remove("./assets/retain")
 
 def catch_exceptions(cancel_on_failure=False):
     def catch_exceptions_decorator(job_func):
@@ -34,6 +31,8 @@ def extractFrames():
     videoFile = f"./assets/video/{file}"
     if not os.path.exists('./assets/frames'):
         os.mkdir('./assets/frames')
+    if os.path.exists("./assets/frames/*.jpg"):
+        os.remove("./assets/frames/*.jpg")
     vidcap = cv2.VideoCapture(videoFile)
     success,image = vidcap.read()
     fps = vidcap.get(cv2.CAP_PROP_FPS)
@@ -49,8 +48,8 @@ def extractFrames():
         if frameId % multiplier == 0:
             x+=1
             cv2.imwrite(f"assets/frames/frame{int(x):04}.jpg", image)
-
     vidcap.release()
+
 @catch_exceptions()
 def post():
     dir = os.listdir("./assets/frames")
@@ -79,10 +78,12 @@ def post():
 if __name__ == '__main__':
     ans = input("Extract Frames?(y/n) \n>")
     if 'y' in ans.lower():
+        if os.path.exists("./assets/retain"):
+            os.remove("./assets/retain")
         extractFrames()
     else:
         pass
-    schedule.every().hour.do(post).run()
+    schedule.every().minute.do(post).run()
 
     while 1:
         schedule.run_pending()
