@@ -13,7 +13,7 @@ import time
 import fnmatch
 
 if os.path.exists("./assets/retain"):
-  os.remove("./assets.retain")
+  os.remove("./assets/retain")
 
 def catch_exceptions(cancel_on_failure=False):
     def catch_exceptions_decorator(job_func):
@@ -30,10 +30,10 @@ def catch_exceptions(cancel_on_failure=False):
     return catch_exceptions_decorator
 
 def extractFrames():
-    file = os.listdir('assets/video')[0]
-    videoFile = f"assets/video/{file}"
-    if not os.path.exists('assets/frames'):
-        os.mkdir('assets/frames')
+    file = os.listdir('./assets/video')[0]
+    videoFile = f"./assets/video/{file}"
+    if not os.path.exists('./assets/frames'):
+        os.mkdir('./assets/frames')
     vidcap = cv2.VideoCapture(videoFile)
     success,image = vidcap.read()
     fps = vidcap.get(cv2.CAP_PROP_FPS)
@@ -52,14 +52,9 @@ def extractFrames():
 
     vidcap.release()
 @catch_exceptions()
-<<<<<<< Updated upstream
-def post(dir = os.listdir("assets/frames")):
-    with open("assets/retain","a+") as f:
-=======
 def post():
     dir = os.listdir("./assets/frames")
     with open("./assets/retain","a+") as f:
->>>>>>> Stashed changes
         f.seek(0)
         filled = f.read(1)
         if not filled:
@@ -79,7 +74,7 @@ def post():
     graph = facebook.GraphAPI(accesstoken)
     post_id = graph.put_photo(image=open(currentFrame, 'rb'),message = msg)['post_id']
     print(f"Submitted post with title \"{msg}\" successfully!")
-    os.remove(currentFrame)
+    #os.remove(currentFrame)
 
 if __name__ == '__main__':
     ans = input("Extract Frames?(y/n) \n>")
