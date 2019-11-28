@@ -72,7 +72,7 @@ def post():
     graph = facebook.GraphAPI(accesstoken)
     post_id = graph.put_photo(image=open(currentFrame, 'rb'),message = msg)['post_id']
     print(f"Submitted post with title \"{msg}\" successfully!")
-    #os.remove(currentFrame)
+    os.remove(currentFrame)
 
 if __name__ == '__main__':
     token = open('./assets/token.txt', 'r')
