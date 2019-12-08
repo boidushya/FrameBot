@@ -20,3 +20,8 @@
 **Note** : You can also host it in your PC/laptop but it will tremendously slow your workflow. An old laptop/pc is ideal as well
 * As of now the script can only process single episodes/movies. The source code for whole series can be obtained by becoming my patreon at https://www.patreon.com/etjfo
 * Don't hesitate to hit me up here if you face any problems
+
+**Most Importantly** : DO NOT TRY TO SCHEDULE IT MANUALLY FOR EVERY ONE MINUTE! There is a reason why I set it to 1 hour.
+You can set it to a MINIMUM of 30 minutes if you like, **DO NOT TRY TO SET IT TO 1 MINUTE OR 5 MINUTES WHATSOEVER**
+
+If you do, and it blocks your account, gives your PC a BSOD ***I'M NOT RESPONSIBLE***
