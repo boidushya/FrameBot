@@ -54,7 +54,7 @@ def extractFrames():
 @catch_exceptions()
 def post():
     dir = os.listdir("./assets/frames")
-    dir.sort(key = lambda t : int(t[5:-4])) //forgot to sort the files before, pls forgive me lol
+    dir.sort(key = lambda t : int(t[5:-4])) #forgot to sort the files before, pls forgive me lol
     with open("./assets/retain","a+") as f:
         f.seek(0)
         filled = f.read(1)
