@@ -48,7 +48,7 @@ def extractFrames():
 
         if frameId % multiplier == 0:
             x+=1
-            cv2.imwrite(f"assets/frames/frame{int(x):06}.jpg", image)
+            cv2.imwrite(f"assets/frames/frame{int(x):06d}.jpg", image)
     vidcap.release()
 
 @catch_exceptions()
