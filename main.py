@@ -48,7 +48,7 @@ def extractFrames():
 
         if frameId % multiplier == 0:
             x+=1
-            cv2.imwrite(f"assets/frames/frame{int(x):04}.jpg", image)
+            cv2.imwrite(f"assets/frames/frame{int(x):06}.jpg", image)
     vidcap.release()
 
 @catch_exceptions()
@@ -66,7 +66,7 @@ def post():
             totalFrames = str(f.readline())
 
     currentFrame = f'assets/frames/{dir[0]}'
-    currentFrameNumber = str(int(currentFrame[-8:-4]))
+    currentFrameNumber = str(int(currentFrame[5:-4]))
     msg = f"Frame {currentFrameNumber} out of {str(totalFrames)}"
     with open('assets/token.txt','r') as token:
         accesstoken = token.readline()
