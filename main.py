@@ -65,9 +65,11 @@ def post():
             f.seek(0)
             totalFrames = str(f.readline())
 
+    with open('assets/videoname.txt',encoding='utf-8') as videoname:
+        nameFile = videoname.readline()
     currentFrame = f'assets/frames/{dir[0]}'
     currentFrameNumber = str(int(dir[0][5:-4]))
-    msg = f"Frame {currentFrameNumber} out of {str(totalFrames)}"
+    msg = f"{nameFile} || Frame {currentFrameNumber} out of {str(totalFrames)}"
     with open('assets/token.txt','r') as token:
         accesstoken = token.readline()
     graph = facebook.GraphAPI(accesstoken)
