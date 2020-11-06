@@ -2,9 +2,7 @@
 
 ## Requirements
 * Python3 Download Python3 from https://www.python.org/downloads/
-* OpenCV ```pip install opencv-python```
-* Facebook-SDK ```pip install facebook-sdk```
-* Schedule ```pip install schedule```
+* Install required packages `sudo pip3 install -r requirements.txt`
 
 ## How to use:
 * Make a page on facebook
@@ -13,7 +11,7 @@
 * Copy the token and paste it in assets/token.txt
 * Place the video in assets/video
 * Open your Terminal/Powershell(as administrator)/Command Prompt(as administrator) in the main folder of this repository
-* Run python3 main.py or sudo python3 main.py if you are on a Mac/Linux
+* Run `python3 main.py` or `sudo python3 main.py` if you are on a Mac/Linux
 * Enjoy!
 
 ## Warning!
