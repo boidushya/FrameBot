@@ -1,3 +1,4 @@
 facebook-sdk==3.1.0
 opencv-python==4.4.0.46
+opencv-python-headless==4.1.0.25
 schedule==0.6.0
