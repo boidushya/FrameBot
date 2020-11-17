@@ -28,11 +28,11 @@
 
 ![](images/7.png)
 
-### Add *page_manage_engagements*, *page_manage_posts*, *page_read_engagement* and click on **Generate Access Token** again. If it gives you a prompt to select pages, click on  **Select All**
+### Add *page_manage_engagements*, *page_manage_posts*, *page_read_engagement* and click on **Generate Access Token** again. If it gives you a prompt to select pages, click on  *Select All*
 
 ![](images/8.png)
 
-### Copy the token generated and go to [this page](https://developers.facebook.com/tools/debug/accesstoken/). \
+### Copy the token generated and go to [this page](https://developers.facebook.com/tools/debug/accesstoken/).
 Do not close your Graph API Explorer just yet! Open this page in a new tab... \
 Paste your token and click on **Debug**
 
@@ -50,7 +50,7 @@ Paste your token and click on **Debug**
 
 ![](images/8.9.png)
 
-### Head back to *Graph API Explorer* and paste the *extended access token* in Access Token box.\
+### Head back to *Graph API Explorer* and paste the *extended access token* in Access Token box.
 Change the text which currently says `me?fields=id,name` to `me/accounts`\
 Click on submit and scroll down till you see your page name for which you want to generate access token.\
 Your access token for the page should be the one *before* your page name.\
@@ -58,18 +58,18 @@ Copy the token and go back the [Access Token Debugger](https://developers.facebo
 
 ![](images/9.png)
 
-### Paste the token and click on debug.\
+### Paste the token and click on debug.
 If the *Expires* field says *never*, Congrats! You just created a *never expire access token* for your page!
 
 ![](images/10.png)
 
-### To test if the token works or not, go back to *Graph API Explorer* and change the `GET` to `POST`.\
+### To test if the token works or not, go back to *Graph API Explorer* and change the `GET` to `POST`.
 This should give you an option to *add parameters*. Add a field with `message` as key and *whatever text you want* as value\
 Change the location field to `me/feed` and click on **Submit**
 
 ![](images/11.png)
 
-### Head back to your page.\
+### Head back to your page.
 If you did everything correctly, you should see your post on your page feed.
 
 ![](images/12.png)
