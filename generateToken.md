@@ -28,7 +28,7 @@
 
 ![](images/7.png)
 
-### Add *page_manage_engagements*, *page_manage_posts*, *page_read_engagement* and click on **Generate Access Token** again.
+### Add *page_manage_engagements*, *page_manage_posts*, *page_read_engagement* and click on **Generate Access Token** again. If it gives you a prompt to select pages, click on  **Select All**
 
 ![](images/8.png)
 
