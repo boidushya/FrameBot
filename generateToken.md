@@ -29,6 +29,7 @@
 ![](images/7.png)
 
 ### Add *page_manage_engagements*, *page_manage_posts*, *page_read_engagement* and click on **Generate Access Token** again. If it gives you a prompt to select pages, click on  *Select All*
+(**EDIT**: Althought the image below shows the perms in **green**, its supposed to turn **gray** after clicking on **Generate Access Token** again. I forgot to take a screenshot of that but if you try to do the later steps with the perms greened out, you will get an **error** saying you dont have the required permissions.
 
 ![](images/8.png)
 
