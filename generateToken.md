@@ -29,9 +29,15 @@
 ![](images/7.png)
 
 ### Add *page_manage_engagements*, *page_manage_posts*, *page_read_engagement* and click on **Generate Access Token** again. If it gives you a prompt to select pages, click on  *Select All*
-(**EDIT**: Althought the image below shows the perms in **green**, its supposed to turn **gray** after clicking on **Generate Access Token** again. I forgot to take a screenshot of that but if you try to do the later steps with the perms greened out, you will get an **error** saying you dont have the required permissions.
+(**EDIT**: Althought the image below shows the perms in **green**, its supposed to turn **gray** after clicking on **Generate Access Token** again.If you try to do the later steps with the perms greened out, you will get an **error** saying you dont have the required permissions.
+
+Make sure it goes from something like this:
 
 ![](images/8.png)
+
+to this:
+
+![](images/edit2.png)
 
 ### Copy the token generated and go to [this page](https://developers.facebook.com/tools/debug/accesstoken/).
 Do not close your Graph API Explorer just yet! Open this page in a new tab... \
