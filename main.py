@@ -13,7 +13,7 @@ import fnmatch
 import sys
 
 #You can confing in here
-frameDes = f"Unus Annus by Deleted Channel - Frame $curent/$max" # input $curent when 
+frameDes = f"Title - Frame $curent/$max" # input $curent when 
 frameHour = False # When frameHour true, frame upload again in 1 hour
 frameDuration = 3 # in minutes
 backupFrame = True # frame can move to frame_bkp folder when upload successfully
