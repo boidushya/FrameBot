@@ -13,7 +13,7 @@
 * Place the video in assets/video
 * Open main.py in Code application (or NotePad), and configuration in the space provided (read [this](tutorial/configuration.md) for information)
 * Open your Terminal/Powershell(as administrator)/Command Prompt(as administrator) in the main folder of this repository
-* Run `python3 main.py` if you're using Windows, or `sudo python3 main.py` if you're usinf Mac/Linux
+* Run `python3 main.py` if you're using Windows, or `sudo python3 main.py` if you're using Mac/Linux
 * Enjoy!
 
 ## Warning!
