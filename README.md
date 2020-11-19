@@ -10,6 +10,7 @@
 * [Checkout this tutorial](generateToken.md)
 * Copy the token and paste it in assets/token.txt
 * Place the video in assets/video
+* Config main.py here
 * Open your Terminal/Powershell(as administrator)/Command Prompt(as administrator) in the main folder of this repository
 * Run `python3 main.py` or `sudo python3 main.py` if you are on a Mac/Linux
 * Enjoy!
