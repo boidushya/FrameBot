@@ -20,7 +20,7 @@
 **Note** : You can also host it in your PC/laptop but it will tremendously slow your workflow. An old laptop/pc/raspberry pi is ideal as well
 * As of now the script can only process single episodes/movies. The source code for whole series can be obtained by supporting me at https://www.patreon.com/etjfo
 * Don't hesitate to hit me up here if you face any problems or if you donated at semolini#2344 (discord)
-* When extracting the video, there will be an error on the [following link](https://github.com/numpy/numpy/issues/16744). To fix this, install numpy version 1.19.3 by running the command `sudo pip3 install numpy==1.19.3`
+* When extracting the video, there will be an error on the [following link](https://github.com/numpy/numpy/issues/16744). ~~To fix this, install numpy version 1.19.3 by running the command `sudo pip3 install numpy==1.19.3`~~ nummpy 1.19.3 now installed automaticlly
 
 **Most Importantly** : DO NOT TRY TO SCHEDULE IT MANUALLY FOR EVERY ONE MINUTE! There is a reason why I set it to 1 hour.
 You can set it to a MINIMUM of 30 minutes if you like, **DO NOT TRY TO SET IT TO 1 MINUTE OR 5 MINUTES WHATSOEVER**

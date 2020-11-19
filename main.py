@@ -73,7 +73,10 @@ def post():
     graph = facebook.GraphAPI(accesstoken)
     post_id = graph.put_photo(image=open(currentFrame, 'rb'),message = msg)['post_id']
     print(f"Submitted post with title \"{msg}\" successfully!")
-    os.remove(currentFrame)
+    # os.remove(currentFrame)
+    if not os.path.exists("./assets/bkp_frame"):
+        os.mkdir('./assets/bkp_frame')
+    os.replace(currentFrame, f'assets/frame_bkp/{dir[0]}')
 
 if __name__ == '__main__':
     token = open('./assets/token.txt', 'r')
@@ -88,6 +91,7 @@ if __name__ == '__main__':
     else:
         pass
     schedule.every().hour.do(post).run()
+    # when using minutes (example 7 minutes), change "every().hour" to "every(7).minutes"
 
     while 1:
         schedule.run_pending()
