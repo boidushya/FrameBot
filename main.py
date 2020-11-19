@@ -57,9 +57,9 @@ def extractFrames():
     multiplier = round(fps/required_fps)
     x = 0
     if backupFrame == True:
-        if not os.path.exists("./assets/video_bkp"):
-            os.mkdir('./assets/video_bkp')
-        os.replace(videoFile, f'assets/video_bkp/{file}')
+        if not os.path.exists("./assets/video_old"):
+            os.mkdir('./assets/video_old')
+        os.replace(videoFile, f'assets/video_old/{file}')
     else:
         os.remove(videoFile)
 
@@ -101,9 +101,9 @@ def post():
         currentFrame, 'rb'), message=msg)['post_id']
     print(f"Submitted post with title \"{msg}\" successfully!")
     if backupFrame == True:
-        if not os.path.exists("./assets/frame_bkp"):
-            os.mkdir('./assets/frame_bkp')
-        os.replace(currentFrame, f'assets/frame_bkp/{dir[0]}')
+        if not os.path.exists("./assets/frame_old"):
+            os.mkdir('./assets/frame_old')
+        os.replace(currentFrame, f'assets/frame_old/{dir[0]}')
     else:
         os.remove(currentFrame)
 
