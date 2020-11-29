@@ -1,5 +1,7 @@
 # Generate a never expire access token for your Facebook page by [boidushya](https://github.com/Boidushya)
 
+## Check out the video tutorial: https://youtu.be/RMLcmDdOSxw
+
 ### Head over to [this page](https://developers.facebook.com/apps/) and click **Select App**
 
 ![](images/1.png)
