@@ -51,6 +51,12 @@ def extractFrames():
             cv2.imwrite(f"assets/frames/frame{int(x):06d}.jpg", image)
     vidcap.release()
 
+# Uncomment the next 4 lines if you want the bot to post multiple images at a time
+#
+#def burst():
+#  for _ in range(5):
+#    post()
+
 @catch_exceptions()
 def post():
     dir = os.listdir("./assets/frames")
