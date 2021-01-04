@@ -51,8 +51,9 @@ def extractFrames():
             cv2.imwrite(f"assets/frames/frame{int(x):06d}.jpg", image)
     vidcap.release()
 
-# Uncomment the next 4 lines and refer to line 97 if you want the bot to post multiple images at a time
+# Uncomment the next 5 lines and refer to line 98 if you want the bot to post multiple images at a time
 #
+#@catch_exceptions()
 #def burst():
 #  for _ in range(5):
 #    post()
@@ -94,7 +95,7 @@ if __name__ == '__main__':
     else:
         pass
     schedule.every().hour.do(post).run()
-#   Uncomment line 98 and comment line 96 in order to enable burst mode    
+#   Uncomment line 99 and comment line 97 in order to enable burst mode    
 #   schedule.every().hour.do(burst).run()
     while 1:
         schedule.run_pending()
