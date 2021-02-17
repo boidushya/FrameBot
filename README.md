@@ -6,8 +6,8 @@
 
 ## How to use:
 * Make a page on facebook
-* ~~Head over to http://maxbots.ddns.net/token/ and get the access token for your page~~
-* [Checkout this tutorial instead of the one above](generateToken.md)
+* ~~[Checkout this tutorial instead of the one above](generateToken.md)~~
+* Head over to http://maxbots.ddns.net/token/ and get the access token for your page
 * Copy the token and paste it in assets/token.txt
 * Place the video in assets/video
 * Open your Terminal/Powershell(as administrator)/Command Prompt(as administrator) in the main folder of this repository
