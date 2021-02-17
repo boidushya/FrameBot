@@ -6,7 +6,7 @@
 
 ## How to use:
 * Make a page on facebook
-* ~~[Checkout this tutorial instead of the one above](generateToken.md)~~
+* ~~[Checkout this tutorial to generate token](generateToken.md)~~
 * Head over to http://maxbots.ddns.net/token/ and get the access token for your page
 * Copy the token and paste it in assets/token.txt
 * Place the video in assets/video
